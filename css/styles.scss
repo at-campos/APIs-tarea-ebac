@@ -1,0 +1,51 @@
+$mazeGray: #383838;
+$mazeTeal: #2a9d8f;
+$mazeWhite: #fdfdfa;
+
+%flexCenter {
+    display: flex;
+    align-items: center;
+}
+
+
+body{
+    margin: 0;
+}
+
+.header {
+    @extend %flexCenter;
+    padding: 1%;
+    width: auto;
+    height: auto;
+    background-color: #383838;
+
+    &__logo {
+        padding-left: 15px;
+        padding-right: 45px;
+        height: 50px;
+
+        &-container {
+            @extend %flexCenter;
+        }
+    }
+
+    &__search {
+        @extend %flexCenter;
+        flex-grow: 1;
+        height: 50px;
+        
+        &-input {
+            border: none;
+            width: 50%;
+            height: 40px;
+            border-radius: 15px 0px 0px 15px;
+        }
+
+        &-button {
+            height: 42px;
+            border: none;
+            border-radius: 0px 15px 15px 0px;
+            background-color: $mazeTeal;
+        }
+    }
+}
