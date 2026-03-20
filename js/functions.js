@@ -41,6 +41,7 @@ const createShowcard = (showArray) => {
     dataContainer.appendChild(title);
     dataContainer.appendChild(type);
     dataContainer.appendChild(lang);
+    dataContainer.appendChild(genre);
     dataContainer.appendChild(status);
 
     //tarjeta
@@ -51,39 +52,36 @@ const createShowcard = (showArray) => {
     cardGrid.appendChild(card);
 }
 
-/*
-
-/*TODO: Delete */
-/*document.addEventListener("DOMContentLoaded", () => {
-    axios.get("https://api.tvmaze.com/search/shows", {params: {q: "simpsons"}})
-        .then((response) => {
-            const data = response.data;
-            //console.log(data);
-
-        }) .catch((error) => {
-            console.log(error);
-        })
-});
-
-/*TODO: Delete */
-
-document.addEventListener("DOMContentLoaded", () => {
-    showQuery();
-})
-const showQuery = async () => {
-    const cardGrid = document.getElementById("cardGrid");
-    try{
-        const showListRaw = await axios.get("https://api.tvmaze.com/search/shows", {params: {q: "simpsons"}});
-        const showList = showListRaw.data;
-        console.log(showList);
-
+const cleanAndPopulate = (showArray) => {
         cardGrid.innerHTML = '';
 
-        for(const show of showList){
+        for(const show of showArray){
             console.log(show);
             const newShowCard = createShowcard(show);
         }
-    } catch(error){
-        console.log("Bad fetch rq - ", error);
+}
+
+const showSearch = async () => {
+    const search = document.getElementById('search-input').value.toLowerCase();
+    if(search){
+        try {
+            const response = await axios.get("https://api.tvmaze.com/search/shows", {params: {q: search}});
+            const showList = response.data;
+            console.log(showList);
+
+            cleanAndPopulate(showList);
+        } catch (error) {
+            console.error("Bad query - ", error);
+        }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("search-button").addEventListener('click', showSearch);
+    document.getElementById('search-input').addEventListener('keypress', function (e) {
+        if(e.key === 'Enter'){
+            console.log("asfasd");
+            showSearch();
+        }
+  })
+});
