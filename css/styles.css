@@ -42,7 +42,6 @@ body {
   border-color: #999;
   border-width: 1px;
   border-style: solid;
-  box-sizing: border-box;
   width: 450px;
   height: 250px;
   padding: 10px;
@@ -66,12 +65,30 @@ body {
 }
 
 .cards {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
   margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  box-sizing: border-box;
   display: grid;
-  width: 75%;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, auto);
   justify-items: center;
+  gap: 1em;
+}
+
+@media (max-width: 1600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1070px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 530px) {
+  .cards {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
