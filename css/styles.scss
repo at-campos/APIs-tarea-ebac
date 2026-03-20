@@ -97,6 +97,9 @@ body{
     grid-template-columns: repeat(3, auto);
     justify-items: center;
     gap: 1em;
+    &__default{
+        color: $mazeWhite;
+    }
 }
 
 

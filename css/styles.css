@@ -76,6 +76,9 @@ body {
   justify-items: center;
   gap: 1em;
 }
+.cards__default {
+  color: #fdfdfa;
+}
 
 @media (max-width: 1600px) {
   .cards {
