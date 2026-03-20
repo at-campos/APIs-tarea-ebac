@@ -51,6 +51,7 @@ body {
   height: 200px;
   -o-object-fit: fill;
      object-fit: fill;
+  border-radius: 5px;
 }
 .showcard__image-container {
   width: 150px;
@@ -90,5 +91,18 @@ body {
   .cards {
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
+  }
+  .showcard {
+    width: 90%;
+  }
+  .showcard__image {
+    width: 125px;
+    height: 175px;
+  }
+  .showcard__image-container {
+    width: 125px;
+    height: 175px;
+    margin-left: 10px;
   }
 }/*# sourceMappingURL=styles.css.map */

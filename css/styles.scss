@@ -5,11 +5,6 @@ $backgroundGray: #474650;
 $cardGray: #6f7076;
 $fontFamily: "Roboto Flex", sans-serif;
 
-@mixin widthMargin($width, $margin){
-    width: $width;
-    margin: $margin;
-}
-
 %flexCenter {
     display: flex;
     align-items: center;
@@ -75,6 +70,7 @@ body{
         width: 150px;
         height: 200px;
         object-fit: fill;
+        border-radius: 5px;
         &-container{
             @extend %flexCenter;
             width: 150px;
@@ -119,5 +115,20 @@ body{
     .cards {
         padding-left: 0;
         padding-right: 0;
+        width: 100%;
     }
+
+    .showcard {
+        width: 90%;
+        &__image{
+        width: 125px;
+        height: 175px;
+        &-container{
+            width: 125px;
+            height: 175px;
+            margin-left: 10px;
+        }
+    }
+    }
+    
 }
