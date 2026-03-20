@@ -1,6 +1,6 @@
 console.log("Hello show!");
 
-const createShowcard = (show) => {
+const createShowcard = (showArray) => {
     const card = document.createElement("section");
     card.classList.add("showcard");
 
@@ -10,7 +10,7 @@ const createShowcard = (show) => {
 
     const image = document.createElement("img");
     image.classList.add("showcard__image");
-    image.src = show.image.medium;
+    image.src = showArray.show.image.medium;
 
     imageContainer.appendChild(image);
 
@@ -20,23 +20,23 @@ const createShowcard = (show) => {
 
     const title = document.createElement("h2");
     title.classList.add("showcard__info-name");
-    title.textContent = show.name;
+    title.textContent = showArray.show.name;
 
     const type = document.createElement("p");
     type.classList.add("showcard__info-type");
-    type.textContent = show.type;
+    type.textContent = showArray.show.type;
 
     const lang = document.createElement("p");
     lang.classList.add("showcard__info-lang");
-    lang.textContent = show.language;
+    lang.textContent = showArray.show.language;
 
     const genre = document.createElement("p");
     genre.classList.add("showcard__info-genre");
-    genre.textContent = show.genres;
+    genre.textContent = showArray.show.genres;
 
     const status = document.createElement("p");
     status.classList.add("showcard__info-status");
-    status.textContent = show.status;
+    status.textContent = showArray.show.status;
 
     dataContainer.appendChild(title);
     dataContainer.appendChild(type);
@@ -76,5 +76,14 @@ const showQuery = async () => {
         const showListRaw = await axios.get("https://api.tvmaze.com/search/shows", {params: {q: "simpsons"}});
         const showList = showListRaw.data;
         console.log(showList);
-    } catch(error){}
+
+        cardGrid.innerHTML = '';
+
+        for(const show of showList){
+            console.log(show);
+            const newShowCard = createShowcard(show);
+        }
+    } catch(error){
+        console.log("Bad fetch rq - ", error);
+    }
 }
