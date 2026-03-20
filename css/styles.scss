@@ -1,7 +1,9 @@
 $mazeGray: #383838;
 $mazeTeal: #2a9d8f;
 $mazeWhite: #fdfdfa;
-
+$backgroundGray: #474650;
+$cardGray: #6f7076;
+$fontFamily: "Roboto Flex", sans-serif;
 %flexCenter {
     display: flex;
     align-items: center;
@@ -10,6 +12,7 @@ $mazeWhite: #fdfdfa;
 
 body{
     margin: 0;
+    background-color: $backgroundGray;
 }
 
 .header {
@@ -48,4 +51,49 @@ body{
             background-color: $mazeTeal;
         }
     }
+}
+
+.showcard{
+    @extend %flexCenter;
+    background-color: $cardGray;
+    border-radius: 5px;
+    border-color: #999;
+    border-width: 1px;
+    border-style: solid;
+
+    box-sizing: border-box;
+    width: 450px;
+    height: 250px;
+    padding: 10px;
+    //box-shadow: 0px 5px 5px rgba($color: #000000, $alpha: .5);
+
+    &__image{
+        width: 150px;
+        height: 200px;
+        object-fit: fill;
+        &-container{
+            @extend %flexCenter;
+            width: 150px;
+            height: 200px;
+            margin-left: 15px;
+        }
+    }
+
+    &__info{
+        flex-grow: 1;
+        color: $mazeWhite;
+        font-family: $fontFamily;
+        padding-left: 1em;
+    }
+}
+
+.cards {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    width: 75%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
 }

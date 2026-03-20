@@ -1,10 +1,11 @@
-.header__search, .header__logo-container, .header {
+.showcard__image-container, .showcard, .header__search, .header__logo-container, .header {
   display: flex;
   align-items: center;
 }
 
 body {
   margin: 0;
+  background-color: #474650;
 }
 
 .header {
@@ -33,4 +34,44 @@ body {
   border: none;
   border-radius: 0px 15px 15px 0px;
   background-color: #2a9d8f;
+}
+
+.showcard {
+  background-color: #6f7076;
+  border-radius: 5px;
+  border-color: #999;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  width: 450px;
+  height: 250px;
+  padding: 10px;
+}
+.showcard__image {
+  width: 150px;
+  height: 200px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.showcard__image-container {
+  width: 150px;
+  height: 200px;
+  margin-left: 15px;
+}
+.showcard__info {
+  flex-grow: 1;
+  color: #fdfdfa;
+  font-family: "Roboto Flex", sans-serif;
+  padding-left: 1em;
+}
+
+.cards {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  width: 75%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
 }/*# sourceMappingURL=styles.css.map */
