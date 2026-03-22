@@ -28,6 +28,12 @@ $fontFamily: "Roboto Flex", sans-serif;
     height: 42px;
 }
 
+%cardText {
+    color: $mazeWhite;
+    font-family: $fontFamily;
+    padding-left: 1em;
+}
+
 body{
     margin: 0;
     background-color: $backgroundGray;
@@ -98,9 +104,19 @@ body{
 
     &__info{
         flex-grow: 1;
-        color: $mazeWhite;
-        font-family: $fontFamily;
-        padding-left: 1em;
+        @extend %cardText;
+    }
+
+    &__extend {
+        width: 90%;
+    }
+
+    &__synopsis{
+        @extend %cardText;
+        width: 100%;
+        grid-column: span 2;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -144,6 +160,10 @@ body{
 
     .showcard {
         width: 90%;
+        &__synopsis{
+            @include widthHeight(90%, 300px);
+            padding-left: -10;
+        }
         &__image{
             @include widthHeight(125px, 175px);
 

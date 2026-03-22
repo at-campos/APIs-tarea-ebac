@@ -56,6 +56,7 @@ const createSingle = (singleShow) => {
     console.log("create single");
     const card = document.createElement("section");
     card.classList.add("showcard");
+    card.classList.add("showcard__extend");
 
     //contenedor #1
     const imageContainer = document.createElement("div");
@@ -105,6 +106,20 @@ const createSingle = (singleShow) => {
 
     const synopsisCard = document.createElement("section");
     synopsisCard.classList.add("showcard");
+    synopsisCard.classList.add("showcard__synopsis");
+    const description = document.createElement("h2");
+    description.textContent = "Sinopsis";
+    const synopsis = document.createElement("p");
+    synopsis.textContent = singleShow.summary;
+    const dateStarted = document.createElement("p");
+    dateStarted.textContent = "Inicio: " + singleShow.premiered;
+    const rating = document.createElement("p");
+    rating.textContent = "Rating: " + singleShow.rating.average;
+
+    synopsisCard.appendChild(description);
+    synopsisCard.appendChild(synopsis);
+    synopsisCard.appendChild(dateStarted);
+    synopsisCard.appendChild(rating)
 
     cardAdder(synopsisCard);
 }

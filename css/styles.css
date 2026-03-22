@@ -11,6 +11,12 @@
   height: 42px;
 }
 
+.showcard__synopsis, .showcard__info {
+  color: #fdfdfa;
+  font-family: "Roboto Flex", sans-serif;
+  padding-left: 1em;
+}
+
 body {
   margin: 0;
   background-color: #474650;
@@ -72,9 +78,15 @@ body {
 }
 .showcard__info {
   flex-grow: 1;
-  color: #fdfdfa;
-  font-family: "Roboto Flex", sans-serif;
-  padding-left: 1em;
+}
+.showcard__extend {
+  width: 90%;
+}
+.showcard__synopsis {
+  width: 100%;
+  grid-column: span 2;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cards {
@@ -114,6 +126,11 @@ body {
   }
   .showcard {
     width: 90%;
+  }
+  .showcard__synopsis {
+    width: 90%;
+    height: 300px;
+    padding-left: -10;
   }
   .showcard__image {
     width: 125px;
